@@ -23,7 +23,7 @@
 }
 
 .menuLink {
-  @extend %heading-bold;
+  @extend %cond-text-bold;
 
   font-size: 2.25rem;
   text-transform: capitalize;

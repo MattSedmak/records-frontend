@@ -2,7 +2,7 @@
 @import '/styles/font-bases.scss';
 
 .navToggle {
-  @extend %text-regular-italic;
+  @extend %cond-text-light;
 
   display: flex;
   align-items: center;

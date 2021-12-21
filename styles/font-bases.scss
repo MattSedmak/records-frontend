@@ -13,9 +13,9 @@
 }
 
 @font-face {
-  font-family: 'ArticoLightItalic';
-  src: url(/public/Fonts/ArticoLightItalic.woff2) format('woff2');
-  src: url(/public/Fonts/ArticoLightItalic.woff) format('woff');
+  font-family: 'ArticoCondensedLight';
+  src: url(/public/Fonts/ArticoCondensedLight.woff2) format('woff2');
+  src: url(/public/Fonts/ArticoCondensedLight.woff) format('woff');
 }
 
 // *********************************************************
@@ -25,10 +25,18 @@
   line-height: 25px;
 }
 
-%heading-bold {
+%cond-text-bold {
   font-family: 'ArticoExtraCondBold', -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
   font-weight: 600;
+  color: $blue-black;
+  font-style: normal;
+}
+
+%cond-text-light {
+  font-family: 'ArticoCondensedLight', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-weight: 400;
   color: $blue-black;
   font-style: normal;
 }
@@ -39,12 +47,4 @@
   font-weight: 400;
   color: $blue-black;
   font-style: normal;
-}
-
-%text-regular-italic {
-  font-family: 'ArticoLightItalic', -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, sans-serif;
-  font-weight: 400;
-  color: $blue-black;
-  font-style: italic;
 }

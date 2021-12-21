@@ -2,7 +2,7 @@
 @import '/styles/variables.scss';
 
 .wrapper {
-  @extend %text-regular, %text-base;
+  @extend %cond-text-light, %text-base;
 
   width: 100%;
   padding: 20px 60px;
@@ -21,12 +21,17 @@
     width: 10px;
     height: 10px;
     top: 8px;
-    left: -14px;
+    left: -16px;
     border-radius: 50%;
     background: $blue-black;
+    transition: transform 0.2s ease-in-out;
   }
 
   &:hover {
     font-style: italic;
+
+    &::before {
+      transform: translateX(-4px);
+    }
   }
 }
