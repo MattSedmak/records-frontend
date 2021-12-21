@@ -3,5 +3,5 @@
 
 html,
 body {
-  @extend %regular-light;
+  @extend %text-regular, %text-base;
 }

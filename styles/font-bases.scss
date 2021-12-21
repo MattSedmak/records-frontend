@@ -1,63 +1,50 @@
 @import './variables.scss';
 
+@font-face {
+  font-family: 'ArticoExtraCondBold';
+  src: url(/public/Fonts/ArticoExtraCondBold.woff2) format('woff2');
+  src: url(/public/Fonts/ArticoExtraCondBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'ArticoLight';
+  src: url(/public/Fonts/ArticoLight.woff2) format('woff2');
+  src: url(/public/Fonts/ArticoLight.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'ArticoLightItalic';
+  src: url(/public/Fonts/ArticoLightItalic.woff2) format('woff2');
+  src: url(/public/Fonts/ArticoLightItalic.woff) format('woff');
+}
+
+// *********************************************************
+
 %text-base {
   font-size: 1rem;
   line-height: 25px;
 }
 
-%text-medium {
-  font-size: 2.25rem;
-  line-height: 25px;
-}
-
-%text-2xl {
-  font-size: 10rem;
-  line-height: 25px;
-}
-
-%ExtraCon-bold {
-  @font-face {
-    font-family: 'Artico ExtraCond Bold', -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-      sans-serif;
-    src: url(/public/Fonts/Artico_ExtraCond_Bold.otf);
-    font-weight: 600;
-    font-style: normal;
-    color: $blue-black;
-  }
-}
-
-%ExtraCon-thin {
-  @font-face {
-    font-family: 'Artico ExtraCond thin', -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-      sans-serif;
-    src: url(/public/Fonts/Artico_ExtraCond_Thin.otf);
-    font-weight: 400;
-    font-style: normal;
-    color: $blue-black;
-  }
-}
-
-%ExtraCon-thin {
-  @font-face {
-    font-family: 'Artico ExtraCond thin italic', -apple-system, BlinkMacSystemFont,
-      Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-      Helvetica Neue, sans-serif;
-    src: url(/public/Fonts/Artico_ExtraCond_Thin_Italic.otf);
-    font-weight: 400;
-    font-style: italic;
-    color: $blue-black;
-  }
-}
-
-%regular-light {
-  @extend %text-base;
-
-  font-family: 'Artico Light', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  src: url(/public/Fonts/Artico_Light.otf);
-  font-weight: 400;
-  font-style: normal;
+%heading-bold {
+  font-family: 'ArticoExtraCondBold', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-weight: 600;
   color: $blue-black;
+  font-style: normal;
+}
+
+%text-regular {
+  font-family: 'ArticoLight', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-weight: 400;
+  color: $blue-black;
+  font-style: normal;
+}
+
+%text-regular-italic {
+  font-family: 'ArticoLightItalic', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-weight: 400;
+  color: $blue-black;
+  font-style: italic;
 }

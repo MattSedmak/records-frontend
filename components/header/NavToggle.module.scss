@@ -1,0 +1,47 @@
+@import '/styles/variables.scss';
+@import '/styles/font-bases.scss';
+
+.navToggle {
+  @extend %text-regular-italic;
+
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $blue-black;
+    transition: transform 0.5s;
+  }
+
+  &.open .icon {
+    width: 25px;
+    height: 6px;
+    border-radius: 50px;
+    background-color: $blue-black;
+    transition: transform 0.5s;
+  }
+
+  span {
+    display: none;
+    transition: all 0.5s;
+    text-transform: capitalize;
+    font-style: italic;
+    margin-left: 8px;
+  }
+}
+
+.navToggle:hover {
+  cursor: pointer;
+
+  .icon {
+    transform: translateX(-10px);
+  }
+
+  span {
+    transform: translateX(-10px);
+    display: block;
+  }
+}
