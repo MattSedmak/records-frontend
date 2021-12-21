@@ -1,0 +1,32 @@
+@import '/styles/font-bases.scss';
+@import '/styles/variables.scss';
+
+.wrapper {
+  @extend %text-regular, %text-base;
+
+  width: 100%;
+  padding: 20px 60px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLink {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 8px;
+    left: -14px;
+    border-radius: 50%;
+    background: $blue-black;
+  }
+
+  &:hover {
+    font-style: italic;
+  }
+}
