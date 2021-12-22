@@ -10,7 +10,7 @@ interface NavMenuProps {
 export const NavMenu = ({ open }: NavMenuProps) => {
   return (
     <nav className={classNames(styles.menu, { [styles.open]: open })}>
-      <Link href='/'>
+      <Link href='/artworks'>
         <a className={styles.menuLink}>Artworks</a>
       </Link>
       <Link href='/'>

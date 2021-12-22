@@ -9,7 +9,7 @@ export const Footer = () => {
       </div>
 
       <div className={styles.links}>
-        <Link href='/'>
+        <Link href='/about'>
           <a className={styles.footerLink}>
             <span>About</span>
           </a>

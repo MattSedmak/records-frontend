@@ -9,8 +9,8 @@ import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <Link href='/'>
+    <Layout title='Records'>
+      <Link href='/artworks'>
         <a className={styles.logoWrapper}>
           <Image src={squareLogo} width={600} height={600} />
         </a>

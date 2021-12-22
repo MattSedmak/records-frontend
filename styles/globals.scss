@@ -10,12 +10,12 @@ body {
 
 body {
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 #__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 a {

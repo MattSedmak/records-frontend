@@ -1,0 +1,20 @@
+@import '/styles/font-bases.scss';
+
+.container {
+  margin-top: 46px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  @extend %cond-text-bold;
+
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+}
