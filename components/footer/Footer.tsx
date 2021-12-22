@@ -8,11 +8,16 @@ export const Footer = () => {
         <span>&copy; 2021</span>
       </div>
 
-      <Link href='/'>
-        <a className={styles.footerLink}>
-          <span>About</span>
+      <div className={styles.links}>
+        <Link href='/'>
+          <a className={styles.footerLink}>
+            <span>About</span>
+          </a>
+        </Link>
+        <a className={styles.footerLink} href='mailto:records@mail.com'>
+          records@mail.com
         </a>
-      </Link>
+      </div>
     </div>
   );
 };

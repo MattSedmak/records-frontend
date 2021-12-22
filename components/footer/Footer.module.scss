@@ -12,6 +12,13 @@
   justify-content: space-between;
 }
 
+.links {
+  display: flex;
+  justify-content: flex-end;
+  // width: 400px;
+  gap: 40px;
+}
+
 .footerLink {
   position: relative;
 
@@ -28,11 +35,15 @@
   }
 
   &:hover {
-    font-style: italic;
-
     &::before {
-      transform: translateX(-4px);
+      transform: scale(1.2);
     }
+  }
+}
+
+.email {
+  &:hover {
+    opacity: 0.75;
   }
 }
 
