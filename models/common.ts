@@ -1,13 +1,17 @@
 export interface Album {
-  id: number;
-  Title: string;
-  Artist: string;
-  RecordLabel: string;
-  ReleaseYear: string;
-  Media: string;
-  Design: string;
-  Description: string;
-  Image: ImageDetails;
+  data: {
+    id: number;
+    attributes: {
+      Title: string;
+      Artist: string;
+      RecordLabel: string;
+      ReleaseYear: string;
+      Media: string;
+      Design: string;
+      Description: string;
+      Image: ImageDetails;
+    };
+  }[];
 }
 
 interface ImageDetails {
@@ -18,16 +22,28 @@ interface ImageDetails {
 }
 
 export interface Artist {
-  id: number;
-  Name: string;
+  data: {
+    id: number;
+    attributes: {
+      Name: string;
+    };
+  }[];
 }
 
 export interface Decade {
-  id: number;
-  year: string;
+  data: {
+    id: number;
+    attributes: {
+      year: string;
+    };
+  }[];
 }
 
 export interface Designer {
-  id: number;
-  Name: string;
+  data: {
+    id: number;
+    attributes: {
+      Name: string;
+    };
+  }[];
 }
