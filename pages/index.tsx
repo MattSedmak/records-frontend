@@ -10,11 +10,13 @@ import Link from 'next/link';
 const Home: NextPage = () => {
   return (
     <Layout title='Records'>
-      <Link href='/artworks'>
-        <a className={styles.logoWrapper}>
-          <Image src={squareLogo} width={600} height={600} />
-        </a>
-      </Link>
+      <div className={styles.container}>
+        <Link href='/artworks'>
+          <a>
+            <Image src={squareLogo} width={500} height={500} priority />
+          </a>
+        </Link>
+      </div>
     </Layout>
   );
 };

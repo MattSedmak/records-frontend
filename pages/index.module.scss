@@ -1,6 +1,9 @@
-.logoWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.container {
+  // border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 156px);
+  width: 100%;
+  margin-top: 91px;
 }
