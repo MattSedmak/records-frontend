@@ -1,3 +1,4 @@
+import { Artist, Decade } from '@/models/common';
 import styles from './Filter.module.scss';
 
 export const Filter = () => {

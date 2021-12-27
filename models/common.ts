@@ -1,24 +1,24 @@
 export interface Album {
-  data: {
-    id: number;
-    attributes: {
-      Title: string;
-      Artist: string;
-      RecordLabel: string;
-      ReleaseYear: string;
-      Media: string;
-      Design: string;
-      Description: string;
-      Image: ImageDetails;
-    };
-  }[];
+  id: number;
+  attributes: {
+    Title: string;
+    Artist: string;
+    RecordLabel: string;
+    ReleaseYear: string;
+    Media: string;
+    Design: string;
+    Description: string;
+    AlbumImage: ImageDetails;
+  };
 }
 
-interface ImageDetails {
-  url: string;
-  alternativeText: string;
-  width: number;
-  height: number;
+export interface ImageDetails {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText: string;
+    };
+  };
 }
 
 export interface Artist {
