@@ -1,11 +1,67 @@
+@import '/styles/font-bases.scss';
+
+.results {
+  // border: 1px solid red;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .filterWrapper {
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  width: 200px;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  @extend %cond-text-bold;
+
+  text-transform: uppercase;
 }
 
 .filterBtn {
-  width: 100px;
+  @extend %cond-text-bold;
+
+  font-size: 1rem;
+  line-height: 25px;
+  padding-left: 0;
   background-color: inherit;
-  border: 1px solid;
+  border: none;
   text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    font-style: italic;
+  }
+}
+
+.filterOption {
+  @extend %text-regular;
+
+  font-size: 0.8rem;
+
+  &:hover {
+    cursor: pointer;
+    font-style: italic;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .results {
+    flex-direction: row;
+  }
+
+  .filterWrapper {
+    flex-direction: column;
+    // position: sticky;
+    width: 200px;
+    gap: 15px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
 }

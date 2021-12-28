@@ -30,7 +30,7 @@ export const Card = ({
   const { url, alternativeText } = AlbumImage.data.attributes;
 
   return (
-    <Link as={`/artwork/${id}`} href='artwork/[id]'>
+    <Link href={`/artworks/${id}`}>
       <a className={styles.card}>
         <div className={styles.imgWrapper}>
           {/* <Image src={url} alt={alternativeText} layout='fill' objectFit='cover' /> */}

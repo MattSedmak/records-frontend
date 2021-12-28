@@ -1,4 +1,4 @@
-import { Listbox } from '@headlessui/react';
+import { Listbox, Transition } from '@headlessui/react';
 
 import { Layout } from '@components/layout';
 import { Hero } from '@components/hero/Hero';
@@ -10,6 +10,7 @@ import { GetServerSideProps } from 'next';
 import { Album, Artist, Decade } from '@/models/common';
 import { useQuery, useQueryClient } from 'react-query';
 import { Card, CardGroup, CardProps } from '@components/cards';
+import { ActiveIcon } from '@components/activeIcon';
 
 const { API_URL } = process.env;
 
@@ -61,50 +62,72 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
     }
   );
 
-  // console.log(
-  //   data.data.map((a: Album) => {
-  //     return a.attributes.AlbumImage.data.attributes.url;
-  //   })
-  // );
+  const clearFiltersHandler = () => {
+    setArtistKey(null);
+    setDecadeKey(null);
+  };
 
   return (
     <Layout title='Artworks'>
       <Hero heading='Artworks' />
-      <Filter />
 
-      <div className={styles.filterWrapper}>
-        <Listbox as='div' value={artistKey} onChange={setArtistKey}>
-          <Listbox.Button className={styles.filterBtn}>Artist/Band</Listbox.Button>
-          <Listbox.Options>
-            {artists.data.map((artist) => (
-              <Listbox.Option key={artist.id} value={artist.attributes.Name}>
-                {artist.attributes.Name}
-              </Listbox.Option>
+      <div className={styles.results}>
+        <div className={styles.filterWrapper}>
+          <h3 className={styles.heading}>Filter results</h3>
+          <button className={styles.filterBtn} onClick={clearFiltersHandler}>
+            Reset
+          </button>
+          <Listbox as='div' value={artistKey} onChange={setArtistKey}>
+            <Listbox.Button className={styles.filterBtn}>Artist/Band</Listbox.Button>
+            <Listbox.Options>
+              {artists.data.map((artist) => (
+                <Listbox.Option
+                  className={styles.filterOption}
+                  key={artist.id}
+                  value={artist.attributes.Name}
+                >
+                  {({ selected }) => (
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                      {artist.attributes.Name}
+                      {selected && <ActiveIcon />}
+                    </span>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Listbox>
+          <Listbox as='div' value={decadeKey} onChange={setDecadeKey}>
+            <Listbox.Button className={styles.filterBtn}>Decade</Listbox.Button>
+            <Listbox.Options>
+              {decades.data.map((decade) => (
+                <Listbox.Option
+                  className={styles.filterOption}
+                  key={decade.id}
+                  value={decade.attributes.year}
+                >
+                  {({ selected }) => (
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                      {decade.attributes.year}
+                      {selected && <ActiveIcon />}
+                    </span>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Listbox>
+        </div>
+
+        <CardGroup>
+          {status === 'loading' && <div> Loading...</div>}
+
+          {status === 'error' && <div>Something went wrong</div>}
+
+          {status === 'success' &&
+            data.data.map((album: Album) => (
+              <Card key={album.id} {...album.attributes} id={album.id} />
             ))}
-          </Listbox.Options>
-        </Listbox>
-        <Listbox as='div' value={decadeKey} onChange={setDecadeKey}>
-          <Listbox.Button className={styles.filterBtn}>Decade</Listbox.Button>
-          <Listbox.Options>
-            {decades.data.map((decade) => (
-              <Listbox.Option key={decade.id} value={decade.attributes.year}>
-                {decade.attributes.year}
-              </Listbox.Option>
-            ))}
-          </Listbox.Options>
-        </Listbox>
+        </CardGroup>
       </div>
-
-      <CardGroup>
-        {status === 'loading' && <div> Loading...</div>}
-
-        {status === 'error' && <div>Something went wrong</div>}
-
-        {status === 'success' &&
-          data.data.map((album: Album) => (
-            <Card key={album.id} {...album.attributes} id={album.id} />
-          ))}
-      </CardGroup>
     </Layout>
   );
 };

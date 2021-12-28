@@ -1,0 +1,9 @@
+@import '/styles/variables.scss';
+
+.circle {
+  background: $blue-black;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: 3px;
+}
