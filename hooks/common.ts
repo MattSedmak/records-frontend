@@ -5,7 +5,11 @@ export function useResponsiveSM() {
 }
 
 export function useResponsiveMD() {
-  return useMediaQuery('(min-width: 768px)');
+  return useMediaQuery('(min-width: 770px)');
+}
+
+export function useResponsiveLG() {
+  return useMediaQuery('(min-width: 1024px)');
 }
 
 export function useMediaQuery(query: string) {

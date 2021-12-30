@@ -55,9 +55,11 @@
 
   .filterWrapper {
     flex-direction: column;
-    // position: sticky;
+    align-self: flex-start;
     width: 200px;
     gap: 15px;
+    position: sticky;
+    top: 150px;
   }
 
   .heading {

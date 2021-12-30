@@ -11,12 +11,9 @@ import { Album, Artist, Decade } from '@/models/common';
 import { useQuery, useQueryClient } from 'react-query';
 import { Card, CardGroup, CardProps } from '@components/cards';
 import { ActiveIcon } from '@components/activeIcon';
-
-const { API_URL } = process.env;
+import { fetchApi } from '@hooks/fetchApi';
 
 const getAlbums = async (key: any) => {
-  // console.log(key.queryKey[2].decade);
-
   const artistKey = key.queryKey[1].artist;
   const decadeKey = key.queryKey[2].decade;
 
@@ -42,16 +39,19 @@ const getAlbums = async (key: any) => {
     `
   );
   return res.json();
+
+  // const albums = await fetchApi('/albums?populate=AlbumImage');
+  // return albums;
 };
 
 interface ArtworksProps {
-  albums: Album;
+  albums: Album[];
   artists: Artist;
   decades: Decade;
 }
 
 export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
   const [artistKey, setArtistKey] = useState(null);
   const [decadeKey, setDecadeKey] = useState(null);
   const { data, status } = useQuery(
@@ -74,9 +74,7 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
       <div className={styles.results}>
         <div className={styles.filterWrapper}>
           <h3 className={styles.heading}>Filter results</h3>
-          <button className={styles.filterBtn} onClick={clearFiltersHandler}>
-            Reset
-          </button>
+
           <Listbox as='div' value={artistKey} onChange={setArtistKey}>
             <Listbox.Button className={styles.filterBtn}>Artist/Band</Listbox.Button>
             <Listbox.Options>
@@ -115,6 +113,9 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
               ))}
             </Listbox.Options>
           </Listbox>
+          <button className={styles.filterBtn} onClick={clearFiltersHandler}>
+            Reset
+          </button>
         </div>
 
         <CardGroup>
@@ -123,7 +124,7 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
           {status === 'error' && <div>Something went wrong</div>}
 
           {status === 'success' &&
-            data.data.map((album: Album) => (
+            data.data.map((album: any) => (
               <Card key={album.id} {...album.attributes} id={album.id} />
             ))}
         </CardGroup>
@@ -133,22 +134,17 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { API_URL } = process.env;
-
-  const resAlbums = await fetch(`${API_URL}/albums?populate=AlbumImage`);
-  const albumsData: Album = await resAlbums.json();
-
-  const resArtists = await fetch(`${API_URL}/artists`);
-  const artistsData: Artist = await resArtists.json();
-
-  const resDecades = await fetch(`${API_URL}/decades`);
-  const decadesData: Decade = await resDecades.json();
+  const [albums, artists, decades] = await Promise.all([
+    fetchApi('/albums?populate=AlbumImage'),
+    fetchApi('/artists'),
+    fetchApi('/decades'),
+  ]);
 
   return {
     props: {
-      albums: albumsData,
-      artists: artistsData,
-      decades: decadesData,
+      albums,
+      artists,
+      decades,
     },
   };
 };

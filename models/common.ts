@@ -1,14 +1,16 @@
 export interface Album {
-  id: number;
-  attributes: {
-    Title: string;
-    Artist: string;
-    RecordLabel: string;
-    ReleaseYear: string;
-    Media: string;
-    Design: string;
-    Description: string;
-    AlbumImage: ImageDetails;
+  data: {
+    id: number;
+    attributes: {
+      Title: string;
+      Artist: string;
+      RecordLabel: string;
+      ReleaseYear: string;
+      Media: string;
+      Design: string;
+      Description: string;
+      AlbumImage: ImageDetails;
+    };
   };
 }
 

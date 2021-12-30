@@ -1,0 +1,21 @@
+@import '/styles/font-bases.scss';
+
+.button {
+  border: none;
+  display: flex;
+  align-items: center;
+  background: inherit;
+  margin-bottom: 1rem;
+  gap: 10px;
+  cursor: pointer;
+
+  .text {
+    @extend %text-regular;
+
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateX(-5px);
+    }
+  }
+}

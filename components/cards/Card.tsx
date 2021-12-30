@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import styles from './Card.module.scss';
 
+import holderImg from '../../public/images/Square-logo-dark.svg';
+
 export interface CardProps {
   Title: string;
   Artist: string;
@@ -30,10 +32,10 @@ export const Card = ({
   const { url, alternativeText } = AlbumImage.data.attributes;
 
   return (
-    <Link href={`/artworks/${id}`}>
+    <Link as={`/artworks/${id}`} href='/artworks/[id]'>
       <a className={styles.card}>
         <div className={styles.imgWrapper}>
-          {/* <Image src={url} alt={alternativeText} layout='fill' objectFit='cover' /> */}
+          <Image src={holderImg} alt='' />
         </div>
         <div className={styles.details}>
           <h4 className={styles.artist}>{Artist}</h4>
