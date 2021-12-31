@@ -13,35 +13,33 @@ import { Card, CardGroup, CardProps } from '@components/cards';
 import { ActiveIcon } from '@components/activeIcon';
 import { fetchApi } from '@hooks/fetchApi';
 
-const getAlbums = async (key: any) => {
-  const artistKey = key.queryKey[1].artist;
-  const decadeKey = key.queryKey[2].decade;
-
+const getAlbums = async (artistKey: string | null, decadeKey: string | null) => {
   const imageQuery =
     'populate[AlbumImage][fields][0]=name&populate[AlbumImage][fields][1]=url';
 
-  if (artistKey) {
-    const res = await fetch(
-      `https://records-backend-deploy.herokuapp.com/api/albums?filters[Artist][$eq]=${artistKey}&${imageQuery}`
+  if (artistKey && decadeKey) {
+    const res = await fetchApi(
+      `/albums?filters[Artist][$eq]=${artistKey}&filters[ReleaseDecade][$eq]=${decadeKey}&${imageQuery}`
     );
-    return res.json();
+    return res;
+  }
+
+  if (artistKey) {
+    const res = await fetchApi(
+      `/albums?filters[Artist][$eq]=${artistKey}&${imageQuery}`
+    );
+    return res;
   }
 
   if (decadeKey) {
-    const res = await fetch(
-      `https://records-backend-deploy.herokuapp.com/api/albums?filters[ReleaseDecade][$eq]=${decadeKey}&${imageQuery}`
+    const res = await fetchApi(
+      `/albums?filters[ReleaseDecade][$eq]=${decadeKey}&${imageQuery}`
     );
-    return res.json();
+    return res;
   }
 
-  const res = await fetch(
-    `https://records-backend-deploy.herokuapp.com/api/albums?populate=AlbumImage
-    `
-  );
-  return res.json();
-
-  // const albums = await fetchApi('/albums?populate=AlbumImage');
-  // return albums;
+  const albums = await fetchApi('/albums?populate=AlbumImage');
+  return albums;
 };
 
 interface ArtworksProps {
@@ -51,12 +49,11 @@ interface ArtworksProps {
 }
 
 export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
-  // const queryClient = useQueryClient();
   const [artistKey, setArtistKey] = useState(null);
   const [decadeKey, setDecadeKey] = useState(null);
   const { data, status } = useQuery(
-    ['albums', { artist: artistKey }, { decade: decadeKey }],
-    getAlbums,
+    ['albums', artistKey, decadeKey],
+    () => getAlbums(artistKey, decadeKey),
     {
       initialData: albums,
     }
@@ -122,6 +119,10 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
           {status === 'loading' && <div> Loading...</div>}
 
           {status === 'error' && <div>Something went wrong</div>}
+
+          {status === 'success' && data.data.length == 0 && (
+            <div>No matching results</div>
+          )}
 
           {status === 'success' &&
             data.data.map((album: any) => (
