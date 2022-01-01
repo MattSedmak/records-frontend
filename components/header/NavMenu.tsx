@@ -16,11 +16,8 @@ export const NavMenu = ({ open }: NavMenuProps) => {
       <Link href='/'>
         <a className={styles.menuLink}>History</a>
       </Link>
-      <Link href='/'>
+      <Link href='/about'>
         <a className={styles.menuLink}>About</a>
-      </Link>
-      <Link href='/'>
-        <a className={styles.menuLink}> Sign in</a>
       </Link>
     </nav>
   );

@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div className={styles.wrapper}>
       <div>
-        <span>&copy; 2021</span>
+        <span>&copy; TwentyTwentyTwo</span>
       </div>
 
       <div className={styles.links}>

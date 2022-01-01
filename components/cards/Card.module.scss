@@ -1,19 +1,15 @@
 @import '/styles/font-bases.scss';
 
-// .card {
-//   // border: 1px solid green;
-//   // height: 700px;
-// }
+.card {
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
 
 .imgWrapper {
   width: 100%;
-  // background-color: lightcyan;
-
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   padding-bottom: 100%;
-  // }
 }
 
 .details {

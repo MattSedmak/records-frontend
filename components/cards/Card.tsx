@@ -33,7 +33,13 @@ export const Card = ({
     <Link as={`/artworks/${id}`} href='/artworks/[id]'>
       <a className={styles.card}>
         <div className={styles.imgWrapper}>
-          <Image src={holderImg} alt='' loading='lazy' />
+          <Image
+            src={url}
+            alt={alternativeText}
+            width={1000}
+            height={1000}
+            loading='lazy'
+          />
         </div>
         <div className={styles.details}>
           <h4 className={styles.artist}>{Artist}</h4>

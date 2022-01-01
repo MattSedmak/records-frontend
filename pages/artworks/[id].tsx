@@ -50,7 +50,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
           </div>
         </div>
         <div className={styles.imgWrapper}>
-          <Image src={dummyImg} alt='' width={600} height={600} priority />
+          <Image src={url} alt={alternativeText} width={600} height={600} priority />
         </div>
         {!isMobile && <BackButton />}
       </div>
