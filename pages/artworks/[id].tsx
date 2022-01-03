@@ -8,7 +8,6 @@ import Image from 'next/image';
 
 import styles from './Artwork.module.scss';
 
-import dummyImg from 'public/images/Square-logo-dark.svg';
 import { useResponsiveLG } from '@hooks/common';
 
 interface ArtWorkProps {
@@ -40,7 +39,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
           {isMobile && <BackButton />}
           <div className={styles.textWrapper}>
             <h3 className={styles.artist}>{Artist}</h3>
-            <em className={styles.title}>{Title}</em>
+            <p className={styles.title}>{Title}</p>
             <p className={styles.record}>
               {RecordLabel}, <span>{ReleaseYear}</span>
             </p>

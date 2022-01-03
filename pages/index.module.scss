@@ -1,9 +1,17 @@
 .container {
   // border: 1px solid red;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 156px);
+  height: calc(100vh - 172px);
   width: 100%;
-  margin-top: 91px;
+  margin-top: 95px;
+  gap: 5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
 }

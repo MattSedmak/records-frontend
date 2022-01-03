@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div className={styles.wrapper}>
       <div>
-        <span>&copy; TwentyTwentyTwo</span>
+        <span>&copy; 2022</span>
       </div>
 
       <div className={styles.links}>
@@ -14,8 +14,8 @@ export const Footer = () => {
             <span>About</span>
           </a>
         </Link>
-        <a className={styles.footerLink} href='mailto:records@mail.com'>
-          records@mail.com
+        <a className={styles.footerLink} href='mailto:info@record.com'>
+          info@record.com
         </a>
       </div>
     </div>
