@@ -7,7 +7,7 @@ import styles from './Artworks.module.scss';
 import { Filter } from '@components/filter';
 import { useState } from 'react';
 import { GetServerSideProps } from 'next';
-import { Album, Artist, Decade } from '@/models/common';
+import { Album, Artist, Decade, PageHero } from '@/models/common';
 import { useQuery, useQueryClient } from 'react-query';
 import { Card, CardGroup, CardProps } from '@components/cards';
 import { ActiveIcon } from '@components/activeIcon';
@@ -46,9 +46,10 @@ interface ArtworksProps {
   albums: Album[];
   artists: Artist;
   decades: Decade;
+  hero: PageHero;
 }
 
-export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
+export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
   const [artistKey, setArtistKey] = useState(null);
   const [decadeKey, setDecadeKey] = useState(null);
   const { data, status } = useQuery(
@@ -59,6 +60,8 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
     }
   );
 
+  const { title, content } = hero.data.attributes.pageHero;
+
   const clearFiltersHandler = () => {
     setArtistKey(null);
     setDecadeKey(null);
@@ -66,7 +69,7 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
 
   return (
     <Layout title='Artworks'>
-      <Hero heading='Artworks' />
+      <Hero heading={title} content={content} />
 
       <div className={styles.results}>
         <div className={styles.filterWrapper}>
@@ -135,10 +138,11 @@ export const Artworks = ({ albums, artists, decades }: ArtworksProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const [albums, artists, decades] = await Promise.all([
+  const [albums, artists, decades, hero] = await Promise.all([
     fetchApi('/albums?populate=AlbumImage'),
     fetchApi('/artists'),
     fetchApi('/decades'),
+    fetchApi('/artworks-page?populate=*'),
   ]);
 
   return {
@@ -146,6 +150,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       albums,
       artists,
       decades,
+      hero,
     },
   };
 };

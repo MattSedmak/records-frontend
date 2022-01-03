@@ -13,7 +13,7 @@ export const NavMenu = ({ open }: NavMenuProps) => {
       <Link href='/artworks'>
         <a className={styles.menuLink}>Artworks</a>
       </Link>
-      <Link href='/'>
+      <Link href='/history'>
         <a className={styles.menuLink}>History</a>
       </Link>
       <Link href='/about'>

@@ -37,6 +37,7 @@ export interface Decade {
     id: number;
     attributes: {
       year: string;
+      description?: string;
     };
   }[];
 }
@@ -48,4 +49,16 @@ export interface Designer {
       Name: string;
     };
   }[];
+}
+
+export interface PageHero {
+  data: {
+    attributes: {
+      pageHero: {
+        id: number;
+        title: string;
+        content: string;
+      };
+    };
+  };
 }
