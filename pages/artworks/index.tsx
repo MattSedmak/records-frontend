@@ -6,11 +6,10 @@ import { useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { Album, Artist, Decade, PageHero } from '@/models/common';
 import { useQuery } from 'react-query';
-import { Card, CardGroup, CardProps } from '@components/cards';
+import { CardGroup } from '@components/cards';
 import { ActiveIcon } from '@components/activeIcon';
 import { fetchApi } from '@hooks/fetchApi';
 import { motion } from 'framer-motion';
-import { fadeInUp } from '@/animations/animations';
 
 const getAlbums = async (artistKey: string | null, decadeKey: string | null) => {
   const imageQuery =
@@ -76,7 +75,12 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
         <Hero heading={title} content={content} />
 
         <div className={styles.results}>
-          <div className={styles.filterWrapper}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className={styles.filterWrapper}
+          >
             <h3 className={styles.heading}>Filter results</h3>
 
             <Listbox as='div' value={artistKey} onChange={setArtistKey}>
@@ -148,7 +152,8 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
             <button className={styles.filterBtn} onClick={clearFiltersHandler}>
               Reset
             </button>
-          </div>
+          </motion.div>
+
           <CardGroup status={status} data={data} />
         </div>
       </motion.div>

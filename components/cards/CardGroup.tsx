@@ -11,7 +11,6 @@ export const CardGroup = ({ status, data }: CardGroupProps) => {
     <Card key={album.id} {...album.attributes} id={album.id} />
   ));
 
-  console.log(data);
   return (
     <div className={styles.container}>
       {status === 'loading' && <div> Loading...</div>}

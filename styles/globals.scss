@@ -2,6 +2,24 @@
 @import './variables.scss';
 @import './font-bases.scss';
 
+@font-face {
+  font-family: 'ArticoExtraCondBold';
+  src: url('/public/fonts/ArticoExtraCondBold.woff2') format('woff2');
+  src: url('/public/fonts/ArticoExtraCondBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ArticoLight';
+  src: url('/public/fonts/ArticoLight.woff2') format('woff2');
+  src: url('/public/fonts/ArticoLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ArticoCondensedLight';
+  src: url('/public/fonts/ArticoCondensedLight.woff2') format('woff2');
+  src: url('/public/fonts/ArticoCondensedLight.woff') format('woff');
+}
+
 html,
 body {
   padding: 0;

@@ -1,23 +1,5 @@
 @import './variables.scss';
 
-@font-face {
-  font-family: 'ArticoExtraCondBold';
-  src: url(/public/Fonts/ArticoExtraCondBold.woff2) format('woff2');
-  src: url(/public/Fonts/ArticoExtraCondBold.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'ArticoLight';
-  src: url(/public/Fonts/ArticoLight.woff2) format('woff2');
-  src: url(/public/Fonts/ArticoLight.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'ArticoCondensedLight';
-  src: url(/public/Fonts/ArticoCondensedLight.woff2) format('woff2');
-  src: url(/public/Fonts/ArticoCondensedLight.woff) format('woff');
-}
-
 // *********************************************************
 
 %text-base {
