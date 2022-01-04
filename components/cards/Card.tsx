@@ -1,10 +1,9 @@
 import { ImageDetails } from '@/models/common';
 import Link from 'next/link';
 import Image from 'next/image';
-
 import styles from './Card.module.scss';
-
-import holderImg from '../../public/images/Square-logo-dark.svg';
+import { motion } from 'framer-motion';
+import { easing, staggerQuick } from '@/animations/animations';
 
 export interface CardProps {
   Title: string;
@@ -30,9 +29,21 @@ export const Card = ({
   const { url, alternativeText } = AlbumImage.data.attributes;
 
   return (
-    <Link as={`/artworks/${id}`} href='/artworks/[id]'>
-      <a className={styles.card}>
-        <div className={styles.imgWrapper}>
+    <Link as={`/artworks/${id}`} href='/artworks/[id]' scroll={false}>
+      <motion.a
+        exit={{ y: -60, opacity: 0 }}
+        transition={{ delay: 0.1, ease: easing }}
+        className={styles.card}
+      >
+        <motion.div
+          initial={{ y: 60, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: easing }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.95 }}
+          className={styles.imgWrapper}
+        >
           <Image
             src={url}
             alt={alternativeText}
@@ -40,7 +51,7 @@ export const Card = ({
             height={1000}
             loading='lazy'
           />
-        </div>
+        </motion.div>
         <div className={styles.details}>
           <h4 className={styles.artist}>{Artist}</h4>
           <em className={styles.title}>{Title}</em>
@@ -50,7 +61,7 @@ export const Card = ({
           <span>Design: {Design}</span>
           <span> {Media} </span>
         </div>
-      </a>
+      </motion.a>
     </Link>
   );
 };

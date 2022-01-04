@@ -5,10 +5,10 @@ import { fetchApi } from '@hooks/fetchApi';
 import { GetServerSideProps } from 'next';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
-
 import styles from './Artwork.module.scss';
-
 import { useResponsiveLG } from '@hooks/common';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerQuick } from '@/animations/animations';
 
 interface ArtWorkProps {
   album: Album;
@@ -34,25 +34,45 @@ const Artwork = ({ album }: ArtWorkProps) => {
 
   return (
     <Layout title={Title}>
-      <div className={styles.container}>
-        <div className={styles.information}>
-          {isMobile && <BackButton />}
-          <div className={styles.textWrapper}>
-            <h3 className={styles.artist}>{Artist}</h3>
-            <p className={styles.title}>{Title}</p>
-            <p className={styles.record}>
-              {RecordLabel}, <span>{ReleaseYear}</span>
-            </p>
-            <p>Design: {Design}</p>
-            <p>{Media}</p>
-            <ReactMarkdown className={styles.description} children={Description} />
+      <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+        <div className={styles.container}>
+          <div className={styles.information}>
+            <motion.div variants={staggerQuick} className={styles.textWrapper}>
+              <motion.div variants={fadeInUp}>
+                {isMobile && <BackButton />}
+              </motion.div>
+              <motion.h3 variants={fadeInUp} className={styles.artist}>
+                {Artist}
+              </motion.h3>
+              <motion.p variants={fadeInUp} className={styles.title}>
+                {Title}
+              </motion.p>
+              <motion.p variants={fadeInUp} className={styles.record}>
+                {RecordLabel}, <span>{ReleaseYear}</span>
+              </motion.p>
+              <motion.p variants={fadeInUp}>Design: {Design}</motion.p>
+              <motion.p variants={fadeInUp}>{Media}</motion.p>
+              <motion.div variants={fadeInUp}>
+                <ReactMarkdown
+                  className={styles.description}
+                  children={Description}
+                />
+              </motion.div>
+            </motion.div>
           </div>
+          <motion.div variants={fadeInUp} className={styles.imgWrapper}>
+            <Image
+              src={url}
+              alt={alternativeText}
+              width={600}
+              height={600}
+              priority
+            />
+          </motion.div>
+
+          {!isMobile && <BackButton />}
         </div>
-        <div className={styles.imgWrapper}>
-          <Image src={url} alt={alternativeText} width={600} height={600} priority />
-        </div>
-        {!isMobile && <BackButton />}
-      </div>
+      </motion.div>
     </Layout>
   );
 };
