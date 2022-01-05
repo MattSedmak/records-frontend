@@ -37,7 +37,8 @@ export interface Decade {
     id: number;
     attributes: {
       year: string;
-      description?: string;
+      description: string;
+      image: ImageDetails;
     };
   }[];
 }
