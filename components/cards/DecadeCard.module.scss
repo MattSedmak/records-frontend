@@ -5,7 +5,7 @@
   display: flex;
   gap: 2%;
   width: 100%;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 
   & > * {
     width: 50%;
@@ -34,5 +34,6 @@
 .imgWrapper {
   // border: 1px solid green;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  padding: 2rem 0;
 }

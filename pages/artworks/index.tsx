@@ -66,7 +66,7 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
   };
 
   return (
-    <Layout title='Artworks'>
+    <Layout title={`Record - ${title}`}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -164,7 +164,7 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const [albums, artists, decades, hero] = await Promise.all([
     fetchApi('/albums?populate=AlbumImage'),
-    fetchApi('/artists'),
+    fetchApi('/artists?sort[0]=Name%3Aasc'),
     fetchApi('/decades'),
     fetchApi('/artworks-page?populate=*'),
   ]);

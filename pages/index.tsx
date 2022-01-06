@@ -11,7 +11,7 @@ import { fadeInUp, stagger } from '@/animations/animations';
 
 const Home: NextPage = () => {
   return (
-    <Layout title='Records'>
+    <Layout title='Record - Home'>
       <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <motion.div variants={stagger} className={styles.container}>
           <Link href='/artworks'>

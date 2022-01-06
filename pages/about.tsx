@@ -12,7 +12,7 @@ const About = ({ hero }: AboutProps) => {
   const { title, content } = hero.data.attributes.pageHero;
 
   return (
-    <Layout title='About us'>
+    <Layout title={`Record - ${title}`}>
       <Hero heading={title} content={content} />
     </Layout>
   );

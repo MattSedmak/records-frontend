@@ -20,7 +20,7 @@ const History = ({ decades, hero }: HistoryProps) => {
   ));
 
   return (
-    <Layout title='History'>
+    <Layout title={`Record - ${title}`}>
       <Hero heading={title} content={content} />
       <div style={{ paddingLeft: '173px', marginTop: '100px' }}>{elDecades}</div>
     </Layout>
