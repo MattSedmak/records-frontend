@@ -27,18 +27,27 @@
 
   font-size: 2.25rem;
   text-transform: capitalize;
-  margin: 2rem 0;
-  font-weight: bold;
+  margin: 1rem 0;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  overflow: hidden;
 
-  &:hover {
-    font-style: italic;
+  .titleLink {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .arrow {
+      height: 2.25rem;
+      margin-right: 5px;
+
+      svg {
+        width: 50px;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 768px) {
   .menu {
-    width: 20%;
+    width: 30%;
   }
 }

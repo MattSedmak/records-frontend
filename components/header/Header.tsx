@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link href='/'>
+      <Link href='/' scroll={false}>
         <a>
           <Image className={styles.logo} src={RecordLogoRnd} alt='Site Logo' />
         </a>

@@ -4,6 +4,7 @@ import { Decade, PageHero } from '@/models/common';
 import { Layout } from '@components/layout';
 import { Hero } from '@components/hero';
 import DecadeCard from '@components/cards/DecadeCard';
+import styles from './History.module.scss';
 
 interface HistoryProps {
   decades: Decade;
@@ -11,8 +12,6 @@ interface HistoryProps {
 }
 
 const History = ({ decades, hero }: HistoryProps) => {
-  // console.log(decades.data);
-
   const { title, content } = hero.data.attributes.pageHero;
 
   const elDecades = decades.data.map((d: any) => (
@@ -22,7 +21,7 @@ const History = ({ decades, hero }: HistoryProps) => {
   return (
     <Layout title={`Record - ${title}`}>
       <Hero heading={title} content={content} />
-      <div style={{ paddingLeft: '173px', marginTop: '100px' }}>{elDecades}</div>
+      <div className={styles.container}>{elDecades}</div>
     </Layout>
   );
 };

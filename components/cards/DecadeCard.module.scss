@@ -3,12 +3,13 @@
 .container {
   // border: 1px solid hotpink;
   display: flex;
+  flex-direction: column;
   gap: 2%;
   width: 100%;
   margin-bottom: 6rem;
 
   & > * {
-    width: 50%;
+    width: 100%;
   }
 }
 
@@ -36,4 +37,13 @@
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    & > * {
+      width: 50%;
+    }
+  }
 }
