@@ -1,0 +1,29 @@
+@import '/styles/font-bases.scss';
+
+.container {
+  border: 1px solid pink;
+  display: flex;
+  // flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(100vw - 120px);
+  margin: 10rem auto;
+
+  & > * {
+    // width: 50%;
+    margin: 2rem;
+    border: 1px solid pink;
+  }
+}
+
+.heading {
+  @extend %cond-text-bold;
+
+  font-size: 3rem;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
