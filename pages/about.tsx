@@ -23,8 +23,6 @@ export default About;
 export const getServerSideProps: GetServerSideProps = async () => {
   const hero = await fetchApi('/about-us?populate=*');
 
-  console.log(hero);
-
   return {
     props: {
       hero,

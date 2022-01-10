@@ -5,6 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "start-server-and-test dev http://localhost:3000 cypress",
+    "cypress": "cypress open",
     "lint": "next lint"
   },
   "dependencies": {
@@ -22,8 +24,10 @@
   "devDependencies": {
     "@types/node": "17.0.2",
     "@types/react": "17.0.37",
+    "cypress": "^9.2.0",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
+    "start-server-and-test": "^1.14.0",
     "typescript": "4.5.4"
   }
 }
