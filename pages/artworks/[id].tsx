@@ -39,7 +39,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
           <div className={styles.information}>
             <motion.div variants={staggerQuick} className={styles.textWrapper}>
               <motion.div variants={fadeInUp}>
-                {isMobile && <BackButton />}
+                {isMobile && <BackButton href='artworks' title='artworks' />}
               </motion.div>
               <motion.h3 variants={fadeInUp} className={styles.artist}>
                 {Artist}
@@ -70,7 +70,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
             />
           </motion.div>
 
-          {!isMobile && <BackButton />}
+          {!isMobile && <BackButton href='artworks' title='artworks' />}
         </div>
       </motion.div>
     </Layout>

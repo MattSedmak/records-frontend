@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Card.module.scss';
 import { motion } from 'framer-motion';
-import { easing, staggerQuick } from '@/animations/animations';
+import { easing } from '@/animations/animations';
 
 export interface CardProps {
   Title: string;
@@ -44,13 +44,7 @@ export const Card = ({
           whileTap={{ scale: 0.95 }}
           className={styles.imgWrapper}
         >
-          <Image
-            src={url}
-            alt={alternativeText}
-            width={1000}
-            height={1000}
-            loading='lazy'
-          />
+          <Image src={url} alt={alternativeText} width={1000} height={1000} />
         </motion.div>
         <div className={styles.details}>
           <h4 className={styles.artist}>{Artist}</h4>

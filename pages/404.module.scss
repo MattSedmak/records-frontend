@@ -1,7 +1,6 @@
 @import '/styles/font-bases.scss';
 
 .container {
-  // border: 1px solid pink;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -10,9 +9,7 @@
   margin: 5rem auto;
 
   & > * {
-    // width: 50%;
     margin: 2rem;
-    // border: 1px solid pink;
     overflow: hidden;
   }
 }

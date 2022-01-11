@@ -45,9 +45,8 @@ const Filter = ({
                     value={artist.attributes.Name}
                   >
                     {({ active, selected }) => (
-                      <span style={{ display: 'flex', alignItems: 'center' }}>
+                      <span className={styles.item}>
                         {artist.attributes.Name}
-                        {active && <ActiveIcon />}
                         {selected && <ActiveIcon />}
                       </span>
                     )}
@@ -77,9 +76,8 @@ const Filter = ({
                     value={decade.attributes.year}
                   >
                     {({ active, selected }) => (
-                      <span style={{ display: 'flex', alignItems: 'center' }}>
+                      <span className={styles.item}>
                         {decade.attributes.year}
-                        {active && <ActiveIcon />}
                         {selected && <ActiveIcon />}
                       </span>
                     )}
