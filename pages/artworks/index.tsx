@@ -1,4 +1,3 @@
-import { Listbox } from '@headlessui/react';
 import { Layout } from '@components/layout';
 import { Hero } from '@components/hero/Hero';
 import styles from './Artworks.module.scss';
@@ -7,9 +6,9 @@ import { GetServerSideProps } from 'next';
 import { Album, Artist, Decade, PageHero } from '@/models/common';
 import { useQuery } from 'react-query';
 import { CardGroup } from '@components/cards';
-import { ActiveIcon } from '@components/activeIcon';
 import { fetchApi } from '@hooks/fetchApi';
 import { motion } from 'framer-motion';
+import Filter from '@components/filter/Filter';
 
 const getAlbums = async (artistKey: string | null, decadeKey: string | null) => {
   const imageQuery =
@@ -48,8 +47,9 @@ interface ArtworksProps {
 }
 
 export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
-  const [artistKey, setArtistKey] = useState(null);
-  const [decadeKey, setDecadeKey] = useState(null);
+  const [artistKey, setArtistKey] = useState<string | null>(null);
+  const [decadeKey, setDecadeKey] = useState<string | null>(null);
+  const { title, content } = hero.data.attributes.pageHero;
   const { data, status } = useQuery(
     ['albums', artistKey, decadeKey],
     () => getAlbums(artistKey, decadeKey),
@@ -58,7 +58,13 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
     }
   );
 
-  const { title, content } = hero.data.attributes.pageHero;
+  const changeArtistHandler = (value: string) => {
+    setArtistKey(value);
+  };
+
+  const changeDecadeHandler = (value: string) => {
+    setDecadeKey(value);
+  };
 
   const clearFiltersHandler = () => {
     setArtistKey(null);
@@ -73,7 +79,6 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
         exit={{ opacity: 0 }}
       >
         <Hero heading={title} content={content} />
-
         <div className={styles.results}>
           <motion.div
             initial={{ opacity: 0 }}
@@ -82,78 +87,16 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
             className={styles.filterWrapper}
           >
             <h3 className={styles.heading}>Filter results</h3>
-
-            <Listbox as='div' value={artistKey} onChange={setArtistKey}>
-              {({ open }) => (
-                <>
-                  <Listbox.Button className={styles.filterBtn}>
-                    Artist/Band
-                  </Listbox.Button>
-                  {open && (
-                    <Listbox.Options
-                      as={motion.ul}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                      static
-                    >
-                      {artists.data.map((artist) => (
-                        <Listbox.Option
-                          className={styles.filterOption}
-                          key={artist.id}
-                          value={artist.attributes.Name}
-                        >
-                          {({ selected }) => (
-                            <span style={{ display: 'flex', alignItems: 'center' }}>
-                              {artist.attributes.Name}
-                              {selected && <ActiveIcon />}
-                            </span>
-                          )}
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  )}
-                </>
-              )}
-            </Listbox>
-            <Listbox as='div' value={decadeKey} onChange={setDecadeKey}>
-              {({ open }) => (
-                <>
-                  <Listbox.Button className={styles.filterBtn}>
-                    Decade
-                  </Listbox.Button>
-                  {open && (
-                    <Listbox.Options
-                      as={motion.ul}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                      static
-                    >
-                      {decades.data.map((decade) => (
-                        <Listbox.Option
-                          className={styles.filterOption}
-                          key={decade.id}
-                          value={decade.attributes.year}
-                        >
-                          {({ selected }) => (
-                            <span style={{ display: 'flex', alignItems: 'center' }}>
-                              {decade.attributes.year}
-                              {selected && <ActiveIcon />}
-                            </span>
-                          )}
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  )}
-                </>
-              )}
-            </Listbox>
-            <button className={styles.filterBtn} onClick={clearFiltersHandler}>
-              Reset
-            </button>
+            <Filter
+              artists={artists}
+              decades={decades}
+              artistKey={artistKey}
+              decadeKey={decadeKey}
+              onReset={clearFiltersHandler}
+              onArtistChange={changeArtistHandler}
+              onDecadeChange={changeDecadeHandler}
+            />
           </motion.div>
-
           <CardGroup status={status} data={data} />
         </div>
       </motion.div>

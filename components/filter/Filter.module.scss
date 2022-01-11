@@ -1,20 +1,25 @@
 @import '/styles/font-bases.scss';
 
-.container {
-  margin-top: 46px;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-
-.heading {
+.filterBtn {
   @extend %cond-text-bold;
 
-  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 25px;
+  padding-left: 0;
+  background-color: inherit;
+  border: none;
+  text-align: left;
+  margin-bottom: 6px;
+  cursor: pointer;
+
+  // &:hover {
+  //   font-style: italic;
+  // }
 }
 
-@media only screen and (min-width: 768px) {
-  .heading {
-    font-size: 1.5rem;
-  }
+.filterOption {
+  @extend %text-regular;
+
+  font-size: 0.8rem;
+  cursor: pointer;
 }

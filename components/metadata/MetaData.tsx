@@ -8,21 +8,17 @@ export const Metadata = ({ title }: Metadataprops) => {
   return (
     <Head>
       <title>{title}</title>
+      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <link
         rel='preload'
-        href='/public/fonts/ArticoExtraCondBold.woff2'
+        href='/fonts/ArticoExtraCondBold.woff2'
         as='font'
         crossOrigin=''
       />
+      <link rel='preload' href='/fonts/ArticoLight.woff2' as='font' crossOrigin='' />
       <link
         rel='preload'
-        href='/public/fonts/ArticoLight.woff2'
-        as='font'
-        crossOrigin=''
-      />
-      <link
-        rel='preload'
-        href='/public/fonts/ArticoCondensedLight.woff2'
+        href='/fonts/ArticoCondensedLight.woff2'
         as='font'
         crossOrigin=''
       />
