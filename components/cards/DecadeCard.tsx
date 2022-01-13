@@ -9,12 +9,9 @@ import styles from './DecadeCard.module.scss';
 export interface DecadeCardProps {
   year: string;
   description: string;
-  image: ImageDetails;
 }
 
-const DecadeCard = ({ year, description, image }: DecadeCardProps) => {
-  const { url, alternativeText } = image.data.attributes;
-
+const DecadeCard = ({ year, description }: DecadeCardProps) => {
   return (
     <motion.div
       initial='initial'
@@ -38,15 +35,7 @@ const DecadeCard = ({ year, description, image }: DecadeCardProps) => {
           <ReactMarkdown className={styles.content} children={description} />
         </motion.div>
       </motion.div>
-      <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: easing }}
-        viewport={{ once: true }}
-        className={styles.imgWrapper}
-      >
-        <Image src={url} alt={alternativeText} width={500} height={500} />
-      </motion.div>
+      <div className={styles.imgWrapper}></div>
     </motion.div>
   );
 };

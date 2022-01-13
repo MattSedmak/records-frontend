@@ -1,12 +1,11 @@
 @import '/styles/font-bases.scss';
 
 .container {
-  // border: 1px solid hotpink;
   display: flex;
   flex-direction: column;
   gap: 2%;
   width: 100%;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
 
   & > * {
     width: 100%;
@@ -21,29 +20,41 @@
 .heading {
   @extend %cond-text-bold;
 
-  font-size: 5rem;
+  font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .content {
   p {
+    font-size: 0.8rem;
     line-height: 1.5;
+    margin-bottom: 1rem;
   }
 }
 
 .imgWrapper {
-  // border: 1px solid green;
   display: flex;
   justify-content: center;
-  padding: 2rem 0;
 }
 
 @media only screen and (min-width: 1024px) {
   .container {
     flex-direction: row;
+    margin-bottom: 6rem;
+
     & > * {
       width: 50%;
+    }
+  }
+
+  .heading {
+    font-size: 5rem;
+  }
+
+  .content {
+    p {
+      font-size: 1rem;
     }
   }
 }

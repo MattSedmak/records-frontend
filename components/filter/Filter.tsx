@@ -36,6 +36,7 @@ const Filter = ({
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 transition={{ duration: 0.2 }}
+                className={styles.options}
                 static
               >
                 {artists.data.map((artist) => (

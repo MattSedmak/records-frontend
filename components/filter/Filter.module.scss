@@ -13,6 +13,16 @@
   cursor: pointer;
 }
 
+.options {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .filterOption {
   @extend %text-regular;
 
@@ -21,7 +31,6 @@
 
   &:hover {
     font-weight: bold;
-    font-size: 0.85rem;
   }
 }
 
