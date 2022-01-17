@@ -108,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const [albums, artists, decades, hero] = await Promise.all([
     fetchApi('/albums?populate=AlbumImage'),
     fetchApi('/artists?sort[0]=Name%3Aasc'),
-    fetchApi('/decades'),
+    fetchApi('/decades?sort[0]=year%3Aasc'),
     fetchApi('/artworks-page?populate=*'),
   ]);
 

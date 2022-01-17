@@ -1,6 +1,5 @@
 import { easing } from '@/animations/animations';
 import Arrrow from '@components/arrow/Arrow';
-import { BackButton } from '@components/backButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +8,12 @@ import styles from './404.module.scss';
 
 export default function Custom404() {
   return (
-    <div className={styles.container}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={styles.container}
+    >
       <div>
         <h1 className={styles.heading}>
           Woops!
@@ -47,6 +51,6 @@ export default function Custom404() {
       <div className={styles.imgWrapper}>
         <Image src={turnTableImg} alt='record player' width={600} height={400} />
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -29,7 +29,7 @@ export const Card = ({
   const { url, alternativeText } = AlbumImage.data.attributes;
 
   return (
-    <Link as={`/artworks/${id}`} href='/artworks/[id]' scroll={false}>
+    <Link href='/artworks/[id]' as={`/artworks/${id}`} scroll={false}>
       <motion.a
         exit={{ y: -60, opacity: 0 }}
         transition={{ delay: 0.1, ease: easing }}
