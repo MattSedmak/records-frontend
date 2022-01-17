@@ -106,10 +106,10 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const [albums, artists, decades, hero] = await Promise.all([
-    fetchApi('/albums?populate=AlbumImage'),
-    fetchApi('/artists?sort[0]=Name%3Aasc'),
-    fetchApi('/decades?sort[0]=year%3Aasc'),
-    fetchApi('/artworks-page?populate=*'),
+    fetchApi('/api/albums?populate=AlbumImage'),
+    fetchApi('/api/artists?sort[0]=Name%3Aasc'),
+    fetchApi('/api/decades?sort[0]=year%3Aasc'),
+    fetchApi('/api/artworks-page?populate=*'),
   ]);
 
   return {
