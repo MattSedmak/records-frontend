@@ -30,8 +30,8 @@ export default History;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const [decades, hero] = await Promise.all([
-    fetchApi('/api/decades?sort[0]=year%3Aasc'),
-    fetchApi('/api/history?populate=*'),
+    fetchApi('/decades?sort[0]=year%3Aasc'),
+    fetchApi('/history?populate=*'),
   ]);
 
   return {

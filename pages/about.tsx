@@ -21,7 +21,7 @@ const About = ({ hero }: AboutProps) => {
 export default About;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const hero = await fetchApi('/api/about-us?populate=*');
+  const hero = await fetchApi('/about-us?populate=*');
 
   return {
     props: {

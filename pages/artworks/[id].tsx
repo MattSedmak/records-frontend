@@ -82,7 +82,7 @@ export default Artwork;
 export const getServerSideProps: GetServerSideProps<ArtWorkProps> = async ({
   params,
 }) => {
-  const album = await fetchApi(`/api/albums/${params?.id}?populate=AlbumImage`);
+  const album = await fetchApi(`/albums/${params?.id}?populate=AlbumImage`);
 
   if (!album) {
     return { notFound: true };
