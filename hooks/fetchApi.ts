@@ -3,9 +3,10 @@ export const getStrapiUrl = (path = '') => {
 };
 
 export const fetchApi = async (path: string) => {
-  const requesturl = getStrapiUrl(path);
+  const requesturl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${path}`;
   const response = await fetch(requesturl);
   const data = await response.json();
 
+  console.log(requesturl);
   return data;
 };
