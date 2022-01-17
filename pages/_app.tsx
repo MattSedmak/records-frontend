@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ProgressBar isAnimating={isAnimating} />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </QueryClientProvider>

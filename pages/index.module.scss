@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 172px);
+  // height: calc(100% - 172px);
   width: 100%;
   margin-top: 95px;
   gap: 2rem;
@@ -16,6 +16,7 @@
 @media only screen and (min-width: 768px) {
   .container {
     flex-direction: row;
+    height: calc(100vh - 172px);
     gap: 5rem;
   }
 }
