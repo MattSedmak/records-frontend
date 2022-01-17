@@ -7,6 +7,5 @@ export const fetchApi = async (path: string) => {
   const response = await fetch(requesturl);
   const data = await response.json();
 
-  console.log(requesturl);
   return data;
 };

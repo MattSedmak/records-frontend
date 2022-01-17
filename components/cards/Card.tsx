@@ -32,7 +32,7 @@ export const Card = ({
     <Link href='/artworks/[id]' as={`/artworks/${id}`} scroll={false}>
       <motion.a
         exit={{ y: -60, opacity: 0 }}
-        transition={{ delay: 0.1, ease: easing }}
+        transition={{ ease: easing }}
         className={styles.card}
       >
         <motion.div
