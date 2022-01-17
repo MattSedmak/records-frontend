@@ -13,14 +13,19 @@ export const Metadata = ({ title }: Metadataprops) => {
         rel='preload'
         href='/fonts/ArticoExtraCondBold.woff2'
         as='font'
-        crossOrigin=''
+        crossOrigin='anonymous'
       />
-      <link rel='preload' href='/fonts/ArticoLight.woff2' as='font' crossOrigin='' />
+      <link
+        rel='preload'
+        href='/fonts/ArticoLight.woff2'
+        as='font'
+        crossOrigin='anonymous'
+      />
       <link
         rel='preload'
         href='/fonts/ArticoCondensedLight.woff2'
         as='font'
-        crossOrigin=''
+        crossOrigin='anonymous'
       />
 
       <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
