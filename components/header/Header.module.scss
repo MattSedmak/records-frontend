@@ -1,0 +1,29 @@
+@import '/styles/variables.scss';
+@import '/styles/font-bases.scss';
+
+.header {
+  width: 100%;
+  padding: 26px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  z-index: 1001;
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    padding: 26px 60px;
+  }
+}

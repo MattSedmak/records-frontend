@@ -1,0 +1,87 @@
+@import '/styles/font-bases.scss';
+
+.container {
+  margin-top: 100px;
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse;
+
+  & > * {
+    width: 100%;
+  }
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textWrapper {
+  @extend %cond-text-light;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 30px;
+  line-height: 1.2;
+}
+
+.artist {
+  @extend %cond-text-bold;
+
+  font-size: 2.5rem;
+}
+
+.title {
+  font-style: italic;
+}
+
+.record {
+  margin-bottom: 2rem;
+}
+
+.description {
+  @extend %text-regular;
+
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 0;
+    flex-direction: row;
+
+    & > * {
+      width: 50%;
+    }
+  }
+
+  .textWrapper {
+    padding-right: 2rem;
+  }
+
+  .imgWrapper {
+    justify-content: flex-end;
+  }
+
+  .artist {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .container {
+    padding: 0 200px;
+  }
+}

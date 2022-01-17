@@ -2,6 +2,21 @@
 @import './variables.scss';
 @import './font-bases.scss';
 
+@font-face {
+  font-family: 'ArticoExtraCondBold';
+  src: url('/fonts/ArticoExtraCondBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticoLight';
+  src: url('/fonts/ArticoLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticoCondensedLight';
+  src: url('/fonts/ArticoCondensedLight.woff2') format('woff2');
+}
+
 html,
 body {
   padding: 0;
@@ -10,6 +25,13 @@ body {
 
 body {
   background-color: #fff;
+  overflow-x: hidden;
+  font-family: 'ArticoLight', Roboto, Helvetica Neue, sans-serif;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
 }
 
 a {

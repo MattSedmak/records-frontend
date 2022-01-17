@@ -1,0 +1,53 @@
+@import '/styles/font-bases.scss';
+
+.container {
+  margin-top: 120px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  @extend %cond-text-bold;
+
+  font-size: 64px;
+  margin-bottom: 46px;
+}
+
+.description {
+  @extend %text-regular;
+
+  font-size: 0.8rem;
+  line-height: 25px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .heading {
+    font-size: 7rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding-left: 173px;
+  }
+
+  .heading {
+    font-size: 10rem;
+  }
+  .description {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .description {
+    width: 50%;
+  }
+}

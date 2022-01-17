@@ -1,0 +1,53 @@
+@import '/styles/font-bases.scss';
+@import '/styles/variables.scss';
+
+.wrapper {
+  @extend %cond-text-light, %text-base;
+
+  width: 100%;
+  padding: 26px 20px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.footerLink {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 8px;
+    left: -16px;
+    border-radius: 50%;
+    background: $blue-black;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.email {
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 26px 60px;
+  }
+}

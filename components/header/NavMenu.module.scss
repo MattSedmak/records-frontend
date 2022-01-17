@@ -1,0 +1,45 @@
+@import '/styles/variables.scss';
+@import '/styles/font-bases.scss';
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: left;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  background-color: #f6f9ff;
+  z-index: -1;
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.menuLink {
+  @extend %cond-text-bold;
+
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin: 2rem 0;
+  text-decoration: none;
+  overflow: hidden;
+
+  .titleLink {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+    width: 30%;
+  }
+}

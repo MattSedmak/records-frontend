@@ -1,0 +1,42 @@
+@import '/styles/font-bases.scss';
+
+.results {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  @extend %cond-text-bold;
+
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+  .results {
+    margin-top: 6rem;
+    flex-direction: row;
+  }
+
+  .filterWrapper {
+    flex-direction: column;
+    align-self: flex-start;
+    width: 200px;
+    gap: 15px;
+    position: sticky;
+    top: 150px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+}

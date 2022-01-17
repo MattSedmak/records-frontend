@@ -1,0 +1,40 @@
+@import '/styles/font-bases.scss';
+
+.filterBtn {
+  @extend %cond-text-bold;
+
+  font-size: 1.5rem;
+  line-height: 25px;
+  padding-left: 0;
+  background-color: inherit;
+  border: none;
+  text-align: left;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.options {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.filterOption {
+  @extend %text-regular;
+
+  font-size: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
