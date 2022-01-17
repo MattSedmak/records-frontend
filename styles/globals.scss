@@ -2,20 +2,20 @@
 @import './variables.scss';
 @import './font-bases.scss';
 
-@font-face {
-  font-family: 'ArticoExtraCondBold';
-  src: url('/fonts/ArticoExtraCondBold.woff2') format('woff2');
-}
+// @font-face {
+//   font-family: 'ArticoExtraCondBold';
+//   src: url('/fonts/ArticoExtraCondBold.woff2') format('woff2');
+// }
 
-@font-face {
-  font-family: 'ArticoLight';
-  src: url('/fonts/ArticoLight.woff2') format('woff2');
-}
+// @font-face {
+//   font-family: 'ArticoLight';
+//   src: url('/fonts/ArticoLight.woff2') format('woff2');
+// }
 
-@font-face {
-  font-family: 'ArticoCondensedLight';
-  src: url('/fonts/ArticoCondensedLight.woff2') format('woff2');
-}
+// @font-face {
+//   font-family: 'ArticoCondensedLight';
+//   src: url('/fonts/ArticoCondensedLight.woff2') format('woff2');
+// }
 
 html,
 body {
@@ -26,7 +26,7 @@ body {
 body {
   background-color: #fff;
   overflow-x: hidden;
-  font-family: 'ArticoLight', Helvetica Neue, sans-serif;
+  // font-family: Helvetica Neue, sans-serif;
 }
 
 #__next {
