@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         variants={stagger}
         className={styles.container}
       >
-        <Link href='/artworks'>
+        <Link href='/artworks' scroll={false}>
           <motion.a
             variants={fadeInUp}
             whileHover={{ scale: 1.02 }}
