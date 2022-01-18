@@ -35,7 +35,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
 
   return (
     <>
-      <Metadata title={Title} />
+      <Metadata title={`Record - ${Title}`} />
       <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <div className={styles.container}>
           <div className={styles.information}>
