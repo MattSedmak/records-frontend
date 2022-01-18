@@ -9,7 +9,7 @@ export const Metadata = ({ title }: Metadataprops) => {
     <Head>
       <title>{title}</title>
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      {/* <link
+      <link
         rel='preload'
         href='/fonts/ArticoExtraCondBold.woff2'
         as='font'
@@ -26,22 +26,6 @@ export const Metadata = ({ title }: Metadataprops) => {
         href='/fonts/ArticoCondensedLight.woff2'
         as='font'
         crossOrigin='anonymous'
-      /> */}
-
-      <link
-        rel='preconnect'
-        href='https://fonts.googleapis.com'
-        crossOrigin='true'
-      />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
-      <link
-        rel='preload'
-        as='style'
-        href='https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=optional'
-      />
-      <link
-        href='https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=optional'
-        rel='stylesheet'
       />
 
       <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />

@@ -8,10 +8,12 @@ import historyIcon from '@/public/images/History-icon.svg';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp, stagger } from '@/animations/animations';
+import { Metadata } from '@components/metadata';
 
 const Home: NextPage = () => {
   return (
-    <Layout title='Record - Home'>
+    <>
+      <Metadata title='Record - Home' />
       <motion.div
         initial='initial'
         animate='animate'
@@ -42,7 +44,7 @@ const Home: NextPage = () => {
           </motion.a>
         </Link>
       </motion.div>
-    </Layout>
+    </>
   );
 };
 

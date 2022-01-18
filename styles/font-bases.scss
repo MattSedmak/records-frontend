@@ -13,25 +13,29 @@
 }
 
 %cond-text-bold {
-  font-family: 'Open Sans Condensed', -apple-system, BlinkMacSystemFont, Roboto,
+  font-family: 'ArticoExtraCondBold', -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   color: $blue-black;
   font-style: normal;
+  font-display: optional;
 }
 
 %cond-text-light {
-  font-family: 'Open Sans Condensed', -apple-system, BlinkMacSystemFont, Roboto,
+  font-family: 'ArticoCondensedLight', -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: $blue-black;
   font-style: normal;
+  font-display: optional;
 }
 
 %text-regular {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: 'ArticoLight', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   font-weight: 400;
   color: $blue-black;
   font-style: normal;
   line-height: 25px;
+  font-display: optional;
 }

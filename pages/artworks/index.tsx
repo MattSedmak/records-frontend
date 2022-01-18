@@ -9,6 +9,7 @@ import { CardGroup } from '@components/cards';
 import { fetchApi } from '@hooks/fetchApi';
 import { motion } from 'framer-motion';
 import Filter from '@components/filter/Filter';
+import { Metadata } from '@components/metadata';
 
 const getAlbums = async (artistKey: string | null, decadeKey: string | null) => {
   const imageQuery =
@@ -72,7 +73,8 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
   };
 
   return (
-    <Layout title={`Record - ${title}`}>
+    <>
+      <Metadata title={`Record - ${title}`} />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -100,7 +102,7 @@ export const Artworks = ({ albums, artists, decades, hero }: ArtworksProps) => {
           <CardGroup status={status} data={data} />
         </div>
       </motion.div>
-    </Layout>
+    </>
   );
 };
 
