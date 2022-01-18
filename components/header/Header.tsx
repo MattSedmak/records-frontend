@@ -2,17 +2,26 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from './Header.module.scss';
-import { useState, useRef, RefObject } from 'react';
+import { useState, useRef, RefObject, useEffect } from 'react';
 import { NavToggle } from './NavToggle';
 import { NavMenu } from './NavMenu';
 import { useOnClickOutside } from '@hooks/common';
 
 import RecordLogoRnd from '@/public/images/Logo-round.svg';
+import { useRouter } from 'next/router';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuopen] = useState(false);
   const node = useRef<HTMLDivElement | null>(null);
   useOnClickOutside(node, () => setIsMenuopen(false));
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuopen(!isMenuOpen);
+    }
+  }, [router.asPath]);
 
   return (
     <header className={styles.header}>

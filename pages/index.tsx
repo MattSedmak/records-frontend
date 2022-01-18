@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         variants={stagger}
         className={styles.container}
       >
-        <Link href='/artworks' scroll={false}>
+        <Link href='/artworks'>
           <motion.a
             variants={fadeInUp}
             whileHover={{ scale: 1.02 }}
@@ -29,7 +29,13 @@ const Home: NextPage = () => {
             whileTap={{ scale: 0.98 }}
             className={styles.icon}
           >
-            <Image src={artworksIcon} width={300} height={300} priority />
+            <Image
+              src={artworksIcon}
+              alt='artworks icon'
+              width={300}
+              height={300}
+              priority
+            />
           </motion.a>
         </Link>
         <Link href='/history'>
@@ -40,7 +46,13 @@ const Home: NextPage = () => {
             whileTap={{ scale: 0.98 }}
             className={styles.icon}
           >
-            <Image src={historyIcon} width={300} height={300} priority />
+            <Image
+              src={historyIcon}
+              alt='history icon'
+              width={300}
+              height={300}
+              priority
+            />
           </motion.a>
         </Link>
       </motion.div>

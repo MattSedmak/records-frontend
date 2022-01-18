@@ -3,7 +3,7 @@ import styles from './Footer.module.scss';
 
 export const Footer = () => {
   return (
-    <div className={styles.wrapper}>
+    <footer className={styles.wrapper}>
       <div>
         <span>&copy; 2022</span>
       </div>
@@ -18,6 +18,6 @@ export const Footer = () => {
           info@record.com
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
