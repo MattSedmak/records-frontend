@@ -26,3 +26,10 @@
     height: 300px;
   }
 }
+
+@media only screen and (max-height: 575.98px) and (orientation: landscape) {
+  .icon {
+    width: 200px;
+    height: 200px;
+  }
+}

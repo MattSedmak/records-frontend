@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link
@@ -43,9 +43,10 @@ class MyDocument extends Document {
             href='/favicon-16x16.png'
           />
           <link rel='manifest' href='/site.webmanifest' />
-          <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
+          <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#1f2432' />
           <meta name='msapplication-TileColor' content='#da532c' />
           <meta name='theme-color' content='#ffffff'></meta>
+          <meta name='description' content='A library of classic record cover art' />
         </Head>
         <body>
           <Main />
