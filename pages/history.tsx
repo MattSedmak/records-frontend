@@ -5,6 +5,7 @@ import { Layout } from '@components/layout';
 import { Hero } from '@components/hero';
 import DecadeCard from '@components/cards/DecadeCard';
 import styles from './History.module.scss';
+import { Metadata } from '@components/metadata';
 
 interface HistoryProps {
   decades: Decade;
@@ -19,10 +20,11 @@ const History = ({ decades, hero }: HistoryProps) => {
   ));
 
   return (
-    <Layout title={`Record - ${title}`}>
+    <>
+      <Metadata title={`Record - ${title}`} />
       <Hero heading={title} content={content} />
       <div className={styles.container}>{elDecades}</div>
-    </Layout>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { PageHero } from '@/models/common';
 import { Hero } from '@components/hero';
 import { Layout } from '@components/layout';
+import { Metadata } from '@components/metadata';
 import { fetchApi } from '@hooks/fetchApi';
 import { GetServerSideProps, NextPage } from 'next';
 
@@ -12,9 +13,10 @@ const About = ({ hero }: AboutProps) => {
   const { title, content } = hero.data.attributes.pageHero;
 
   return (
-    <Layout title={`Record - ${title}`}>
+    <>
+      <Metadata title={`Record - ${title}`} />
       <Hero heading={title} content={content} />
-    </Layout>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { ProgressBar } from '@components/progess-bar';
 import { AnimatePresence } from 'framer-motion';
+import { Layout } from '@components/layout';
 
 const queryClient = new QueryClient();
 
@@ -32,7 +33,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ProgressBar isAnimating={isAnimating} />
       <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
-        <Component {...pageProps} key={router.route} />
+        <Layout>
+          <Component {...pageProps} key={router.route} />
+        </Layout>
       </AnimatePresence>
     </QueryClientProvider>
   );

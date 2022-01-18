@@ -1,6 +1,6 @@
 import { Album } from '@/models/common';
 import { BackButton } from '@components/backButton';
-import { Layout } from '@components/layout';
+import {} from '@components/layout';
 import { fetchApi } from '@hooks/fetchApi';
 import { GetServerSideProps } from 'next';
 import ReactMarkdown from 'react-markdown';
@@ -9,6 +9,7 @@ import styles from './Artwork.module.scss';
 import { useResponsiveLG } from '@hooks/common';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerQuick } from '@/animations/animations';
+import { Metadata } from '@components/metadata';
 
 interface ArtWorkProps {
   album: Album;
@@ -33,7 +34,8 @@ const Artwork = ({ album }: ArtWorkProps) => {
   const isMobile = useResponsiveLG();
 
   return (
-    <Layout title={Title}>
+    <>
+      <Metadata title={Title} />
       <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <div className={styles.container}>
           <div className={styles.information}>
@@ -73,7 +75,7 @@ const Artwork = ({ album }: ArtWorkProps) => {
           {!isMobile && <BackButton href='artworks' title='artworks' />}
         </div>
       </motion.div>
-    </Layout>
+    </>
   );
 };
 
