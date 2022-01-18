@@ -3,7 +3,7 @@
 .filterBtn {
   @extend %cond-text-bold;
 
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 25px;
   padding-left: 0;
   background-color: inherit;
@@ -37,4 +37,10 @@
 .item {
   display: flex;
   align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .filterBtn {
+    font-size: 1.3rem;
+  }
 }
