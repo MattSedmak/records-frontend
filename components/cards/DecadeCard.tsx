@@ -1,6 +1,4 @@
-import { ImageDetails } from '@/models/common';
 import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { easing, fadeInUp, staggerQuick } from '@/animations/animations';
 

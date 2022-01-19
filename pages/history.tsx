@@ -1,7 +1,6 @@
 import { fetchApi } from '@hooks/fetchApi';
 import { GetServerSideProps } from 'next';
 import { Decade, PageHero } from '@/models/common';
-import { Layout } from '@components/layout';
 import { Hero } from '@components/hero';
 import DecadeCard from '@components/cards/DecadeCard';
 import styles from './History.module.scss';
