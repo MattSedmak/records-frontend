@@ -1,4 +1,4 @@
-You can visit the live site [`here`](https://records-frontend.vercel.app).
+You can visit the live site at [`records-frontend.vercel.app`](https://records-frontend.vercel.app).
 
 ## Record
 
