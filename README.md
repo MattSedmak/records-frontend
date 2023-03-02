@@ -1,4 +1,3 @@
-You can visit the live site at [`records-frontend.vercel.app`](https://records-frontend.vercel.app).
 
 The backend is buit with Strapi CMS and is hosted on Heroku's hobby tier - this means that the Heroku server goes into sleep mode when it is not used. The first time you visit the site it may take a little while to load while the server 'wakes up'. Just refresh the browser and bob's your uncle!
 
